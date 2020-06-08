@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery事件绑定</title>
+		<style type="text/css">
+			.main{width: 200px;height: 200px;background: yellow;}
+		</style>
+	</head>
+	<body>
+		<p>
+			<input type="button" id="niu1" value="显示" />
+			<input type="button" id="niu2" value="隐藏" />
+		</p>
+		<div class="main"></div>
+		<script src="js/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#niu1").on("click",function(){
+				$(".main").slideDown(1000);
+			});
+			$("#niu2").on("click",function(){
+				$(".main").slideUp(1000);
+			});
+		</script>
+	</body>
+</html>

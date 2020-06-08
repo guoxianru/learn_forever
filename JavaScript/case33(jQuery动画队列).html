@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery动画队列</title>
+	</head>
+	<body>
+		<div id="main" style="width: 300px;height: 300px;background: yellow;position: absolute;"></div>
+		<script src="js/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#main").click(function(){
+				$("#main").animate({left:"300px",height:"500px"},3000)
+						  .animate({top:"300px"},3000)
+						  .animate({width:"500px"},3000)
+						  .fadeOut(3000)
+			});
+		</script>
+	</body>
+</html>

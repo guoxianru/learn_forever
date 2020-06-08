@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>追加选择</title>
+		<style type="text/css">
+			*{font-size: 12px;}
+			tr{text-align: center;background: white;height: 28px;}
+			input{margin-left: 2px;}
+			.button1{background: orangered;border: none;color: white;border-radius: 5px;}
+			.button2{background: green;border: none;color: white;border-radius: 5px;}
+			.button3{background: blue;border: none;color: white;border-radius: 5px;}
+			.button4{background: purple;border: none;color: white;border-radius: 5px;}
+			.button5{background: gray;border: none;color: white;border-radius: 5px;}
+		</style>
+	</head>
+	<body>
+		<table border="0" cellspacing="1" cellpadding="0" bgcolor="gainsboro" align="center" width="600">
+			<tr bgcolor="white">
+				<td colspan="6" align="left" style="background: black;">
+					<input type="button" value="追加一行" class="button1" id="add"/>
+					<input type="button" value="删除" class="button2" id="del"/>
+					<input type="button" value="全选" class="button3" id="qx"/>
+					<input type="button" value="全不选" class="button4" id="qbx"/>
+					<input type="button" value="反选" class="button5" id="fx"/>
+				</td>
+			</tr>
+			<tr>
+				<th></th>
+				<th>id</th>
+				<th>name</th>
+				<th>age</th>
+				<th>sex</th>
+				<th>备注</th>
+			</tr>
+			<tr>
+				<td><input type="checkbox" /></td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+				<td>1</td>
+			</tr>
+		</table>
+		<script src="js/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var i=1;
+			$("#add").click(function(){
+				i++;
+				if(i==4){i=1};
+				$("table").append("<tr><td><input type='checkbox' /></td><td>"+i+"</td><td>1</td><td>1</td><td>1</td><td>1</td>");
+			});
+			$("#del").click(function(){
+				$(":checked").parent().parent().remove();
+			});
+			$("#fx").click(function(){
+				$("input[type=checkbox]").each(function(i,element){
+					element.checked=!element.checked;
+				})
+			});
+			$("#qx").click(function(){
+				$("input[type=checkbox]").attr("checked",true);
+			});
+			$("#qbx").click(function(){
+				$("input[type=checkbox]").attr("checked",false);
+			});
+		</script>
+	</body>
+</html>

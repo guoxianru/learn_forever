@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery事件</title>
+		<style type="text/css">
+			div{width: 200px;height: 200px;background: red;float: left;margin: 5px;}
+		</style>
+	</head>
+	<body>
+		<p>
+			<input type="button" id="niu1" value="紫色" />
+			<input type="button" id="niu2" value="黄色" />
+			<input type="button" id="niu3" value="显示" />
+		</p>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div style="display: none;"></div>
+		<script src="js/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$("#niu1").click(function(){
+				$("div:gt(1)").css("background","purple")
+			});
+			$("#niu2").click(function(){
+				$("div:lt(1)").css("background","yellow")
+			});
+			$("#niu3").click(function(){
+				$("div:last").css("display","block")
+			});
+		</script>
+	</body>
+</html>

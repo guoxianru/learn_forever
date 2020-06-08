@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>轮播图</title>
+		<style type="text/css">
+			div{text-align: left;}
+			.niu{padding-left: 300px}
+			a{display: inline-block;width: 30px;height: 30px;border-radius: 15px;background: yellow;text-decoration: none;line-height: 30px;text-align: center;margin-left: 80px}
+		</style>
+	</head>
+	<body>
+		<div class="niu">
+			<input type="button" value="上一张" onclick="shang()"/>
+			<input type="button" value="下一张" onclick="xia()"/>
+		</div>
+		<div class="tu">
+			<img src="img/t1.jpg" id="img" width="800" height="600"/>
+		</div>
+		<div class="a">
+			<a href="#" onmouseover="mouseover(0)">1</a>
+			<a href="#" onmouseover="mouseover(1)">2</a>
+			<a href="#" onmouseover="mouseover(2)">3</a>
+			<a href="#" onmouseover="mouseover(3)">4</a>
+			<a href="#" onmouseover="mouseover(4)">5</a>
+		</div>
+		<script type="text/javascript">
+			var tu=["t1.jpg","t2.jpg","t3.jpg","t4.jpg","t5.jpg"];
+			var img=document.getElementById("img");
+			var index=0;
+			function shang()
+			{
+				if(index>0)
+				{
+					index--;
+					img.src="img/"+tu[index];
+				}
+			}
+			function xia()
+			{
+				if(index<tu.length-1)
+				{
+					index++;
+					img.src="img/"+tu[index];
+				}
+			}
+			function mouseover(x)
+			{
+				img.src="img/"+tu[x];
+			}
+			setInterval(function(){
+				index++;
+				if(index>tu.length-1)
+				{
+					index=0;
+				}
+				img.src="img/"+tu[index];
+			},2000);
+		</script>
+	</body>
+</html>

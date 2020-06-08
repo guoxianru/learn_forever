@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>水仙花数</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			for(var i=100;i<=999;i++)
+			{
+				var a=parseInt(i%10);
+				var b=parseInt((i/10)%10);
+				var c=parseInt(i/100);
+				if(a*a*a+b*b*b+c*c*c==i)
+				{
+					document.write(i+" ")
+				}
+			}
+		</script>
+	</body>
+</html>

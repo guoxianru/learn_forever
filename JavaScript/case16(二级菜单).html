@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>二级菜单</title>
+		<style type="text/css">
+			a{text-decoration: none;}
+			.nav{width: 800px;background: gainsboro;margin: 80px auto;}
+			.tab{display: inline-block;position: relative;margin-left: 10px;}
+			.list{display: none;position: absolute;}
+			.list a{display: block;margin-top: 10px;}
+			.niu{display: inline-block;padding: 10px 0;}
+			.tou{display: inline-block;transform: rotate(90deg);margin-left: 10px;}
+			.tab:hover .tou{transform: rotate(-90deg);}
+		</style>
+	</head>
+	<body>
+		<div class="nav">
+			<div class="tab tab1">
+				<a href="#" class="niu">我的订单<span class="tou">></span></a>
+				<div class="list list1">
+					<a href="#">待支付</a>
+					<a href="#">待支付</a>
+					<a href="#">待支付</a>
+					<a href="#">待支付</a>
+				</div>
+			</div>
+			<div class="tab tab2">
+				<a href="#" class="niu">我的易购</a>
+				<div class="list list2">
+					<a href="#">待支付</a>
+					<a href="#">待支付</a>
+					<a href="#">待支付</a>
+					<a href="#">待支付</a>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.7.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".tab1").mouseover(function(){
+				$(".list1").slideDown();
+			});
+			$(".tab1").mouseleave(function(){
+				$(".list1").slideUp();
+			});
+			$(".tab2").mouseover(function(){
+				$(".list2").slideDown();
+			});
+			$(".tab2").mouseleave(function(){
+				$(".list2").slideUp();
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>手风琴</title>
+		<style>
+			.box{width: 400px;margin:80px auto;text-align: center;}
+			ul{margin: 0px;padding: 0px;list-style: none;}
+			.item div{background-color: deeppink;height: 50px;line-height: 50px;border-bottom: 1px solid black;}
+			.item ul{display: none;}
+			.item ul li{height: 50px;line-height: 50px;background-color: yellow;border-bottom: 1px solid black;}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="item">
+				<div>ITEM1</div>
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+			</div>
+			<div class="item">
+				<div>ITEM2</div>
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+			</div>
+			<div class="item">
+				<div>ITEM3</div>
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+			</div>
+			<div class="item">
+				<div>ITEM4</div>
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+			</div>
+			<div class="item">
+				<div>ITEM5</div>
+				<ul>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.min.js" ></script>
+		<script>
+			$(".item").click(function(){
+				$(this).children("ul").slideDown();
+				$(this).siblings().children("ul").slideUp();
+			});
+		</script>
+	</body>
+</html>

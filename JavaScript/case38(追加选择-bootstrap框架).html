@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>追加选择-bootstrap框架</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<style>
+			.table,th{text-align: center;}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<table class="table table-bordered">
+				<tr style="background-color: black; text-align: left;">
+					<td colspan="6">
+						<input type="button" value="追加一行" class="btn btn-danger btn-sm" id="add"/>
+						<input type="button" value="删除" class="btn btn-success btn-sm" id="del"/>
+						<input type="button" value="全选" class="btn btn-primary btn-sm" id="qx"/>
+						<input type="button" value="全不选" class="btn btn-warning btn-sm" id="qbx"/>
+						<input type="button" value="反选" class="btn btn-info btn-sm" id="fx"/>
+					</td>
+				</tr>
+				<tr>
+					<th></th>
+					<th>id</th>
+					<th>name</th>
+					<th>sex</th>
+					<th>age</th>
+					<th>备注</th>
+				</tr>
+				<tr>
+					<td><input type="checkbox" ></td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+			</table>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.7.min.js" ></script>
+		<script>
+			var i=1;
+			$("#add").click(function(){
+				i++;
+				if(i==4){i=1};
+				$("table").append("<tr><td><input type='checkbox' /></td><td>"+i+"</td><td>1</td><td>1</td><td>1</td><td>1</td>");
+			});
+			$("#del").click(function(){
+				$(":checked").parent().parent().remove();
+			});
+			$("#fx").click(function(){
+				$("input[type=checkbox]").each(function(i,element){
+					element.checked=!element.checked;
+				})
+			});
+			$("#qx").click(function(){
+				$("input[type=checkbox]").attr("checked",true);
+			});
+			$("#qbx").click(function(){
+				$("input[type=checkbox]").attr("checked",false);
+			});
+		</script>
+	</body>
+</html>
