@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>黑客数字雨</title>
+	<style> 
+		*{margin:0;}
+		/*.body{filter:alpha(Opacity=50);-moz-opacity:0.5;opacity: 0.5}*/
+		/*filter：IE;filter:alpha(Opacity=50);半透明50%*/
+		/*-moz-opacity：火狐浏览器;-moz-opacity:0.5;半透明为50%*/
+		/*opacity：谷歌浏览器;opacity: 0.5;半透明50%*/
+		.body{width: 1000px;height: 865px;margin: 0 auto;background: #fff}
+	 </style>
+</head>
+<body>
+	
+	<canvas width="0" height="0" id="canvas0" style="background:#000000; position: absolute; z-index: -1"></canvas>
+	<script type="ae971445b047e0a0b9e82776-text/javascript">
+			var canvas=document.getElementById("canvas0");
+			//获取权限
+			var ctx=canvas.getContext("2d");
+			//获取屏幕信息
+			var screenInformation= window.screen;
+			//控制台输出屏幕信息
+			console.log(screenInformation);
+			//设置屏幕信息
+			canvas.width=screenInformation.width;
+			canvas.height=screenInformation.height;
+			//字体大小
+			var fontSize=20;
+			//字体
+			var str="01";
+			var cols=Math.floor((screenInformation.width)/fontSize);
+			var X =[];
+			for(var i=0;i<cols;i++){
+				X.push(0);
+			}
+			var gradient=ctx.createLinearGradient(0,0,screenInformation.width,screenInformation.height);
+			gradient.addColorStop("0","#ff0099");
+			gradient.addColorStop("0.25","#00ccff");
+			gradient.addColorStop("0.5","#ffff00");
+			gradient.addColorStop("0.75","#cc66cc");
+			gradient.addColorStop("0.1","#00ccff");
+			function matrix(){
+				ctx.fillStyle="rgba(0,0,0,0.02)";
+				//清除画布
+				ctx.fillRect(0,0,canvas.width,canvas.height);
+				//设置字体颜色
+				ctx.fillStyle=gradient;
+				for(var i=0;i<cols;i++){
+					var y=X[i]*fontSize;
+					ctx.fillText(str[Math.floor(Math.random()*str.length)],i*fontSize,y);
+					if(y >= screenInformation.height&&Math.random()>0.99){
+						X[i]=0;
+					}
+					X[i]++;
+				}
+			}
+			setInterval(matrix,30);
+	</script>
+	<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/2448a7bd/cloudflare-static/rocket-loader.min.js" data-cf-nonce="ae971445b047e0a0b9e82776-"></script>
+
+	<div class="body">
+		
+	</div>
+</body>
+</html>
