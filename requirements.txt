@@ -1,0 +1,50 @@
+# spider
+requests==2.22.0
+scrapy==1.8.0
+crawlab-sdk
+lxml
+selenium
+pyppeteer
+scrapy-redis
+scrapy-splash
+# js
+pyexecjs
+# database
+pymysql
+pymongo
+redis
+# data
+pandas
+# excel
+xlrd
+xlwt
+xlutils
+openpyxl
+# word
+python-docx
+# image
+pillow
+pdf2image
+# pdf
+pypdf2
+pymupdf
+pdfplumber
+# ocr
+pytesseract
+# other
+retry
+loguru # log
+sshtunnel # ssh
+demjson # json
+cpca # address
+folium # map
+fonttools # font
+# sdk
+aliyun-python-sdk-core
+aliyun-python-sdk-alimt
+baidu-aip
+tencentcloud-sdk-python
+
+# Manual
+# ocr:tesserocr
+# android:frida frida-tools
