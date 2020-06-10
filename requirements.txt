@@ -31,6 +31,9 @@ pymupdf
 pdfplumber
 # ocr
 pytesseract
+# plot
+setuptools
+matplotlib
 # other
 retry
 loguru # log
