@@ -42,6 +42,7 @@ demjson # json
 cpca # address
 folium # map
 fonttools # font
+psutil # system,memory,disk...
 # sdk
 aliyun-python-sdk-core
 aliyun-python-sdk-alimt
