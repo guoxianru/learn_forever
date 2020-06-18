@@ -6,7 +6,7 @@
 """
 
 
-def verifiy_liangzhong():
+def verifiy_lianzhong():
     """
     图像验证码联众识别
     同级目录下保存验证码图片：yzm.png
@@ -19,8 +19,8 @@ def verifiy_liangzhong():
     import json
     import requests
 
-    api_username = ("",)
-    api_password = ""
+    api_username = "username"
+    api_password = "password"
     file_name = "yzm.png"
     api_post_url = "http://v1-http-api.jsdama.com/api.php?mod=php&act=upload"
     yzm_min = ""
