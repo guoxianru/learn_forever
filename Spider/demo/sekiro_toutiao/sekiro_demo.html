@@ -14,7 +14,9 @@
             return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
         }
 
-        var client = new SekiroClient("wss://sekiro.virjar.com/websocket?group=ws-group-sekiro_toutiao&clientId=" + guid());
+        // var client = new SekiroClient("wss://sekiro.virjar.com/websocket?group=ws-group-sekiro_toutiao&clientId=" + guid());
+
+        var client = new SekiroClient("ws://47.94.245.242:5603/websocket?group=ws-group-sekiro_toutiao&clientId=" + guid());
 
         client.registerAction("toutiao_decode", function (request, resolve, reject) {
             resolve(toutiao_decode(request['decode_str']));
