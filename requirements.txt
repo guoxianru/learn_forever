@@ -43,6 +43,7 @@ cpca # address
 folium # map
 fonttools # font
 psutil # system,memory,disk...
+pyautogui # Python GUI Automation
 # sdk
 aliyun-python-sdk-core
 aliyun-python-sdk-alimt
