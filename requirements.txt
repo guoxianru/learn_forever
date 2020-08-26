@@ -20,6 +20,9 @@ xlrd
 xlwt
 xlutils
 openpyxl
+# api
+fastapi
+uvicorn
 # word
 python-docx
 # image
