@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -11,7 +11,7 @@ void main()
 	{
 		if(10*i-2==12*(i-1))
 		{
-			printf("%dÖ»´¬\n",i);
+			printf("%dåªèˆ¹\n",i);
 			break;
 		}
 	}

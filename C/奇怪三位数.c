@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author��GXR */
+/* Author：GXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -18,7 +18,7 @@ void main()
 		{
 			if(x>z && z>y)
 			{
-				printf("��λ���ֱȰ�λ���ִ�,����λ�����ֱ�ʮλ���ִ�,���Ҹ�λ����֮�͵��ڸ�λ�������֮������λ����%d\n",i);
+				printf("个位数字比百位数字大,而百位数字又比十位数字大,并且各位数字之和等于各位数字相乘之积的三位数是%d\n",i);
 			}
 		}
 	}

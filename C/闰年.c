@@ -1,21 +1,21 @@
 /* Note:Your choice is C IDE */
-/* Author：GXR */
+/* Author锛欸XR */
 #include "stdio.h"
 #include "windows.h"
 void main()
 {
 	int a;
 	
-	printf("输入年份:");
+	printf("杈撳叆骞翠唤:");
 	scanf("%d",&a);
 	
 	if(((a%4==0) && (a%100!=0)) || (a%400==0))
 	{
-		printf("闰年");
+		printf("闂板勾");
 	}
 	else
 	{
-		printf("非闰");
+		printf("闈為棸");
 	}
 	
 	system("pause");

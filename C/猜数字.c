@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -11,28 +11,28 @@ void main()
 	
 
 	
-	printf("ÇëÊäÈëÒ»¸öÊı×Ö£º");
+	printf("è¯·è¾“å…¥ä¸€ä¸ªæ•°å­—ï¼š");
 	scanf("%d",&guessnum);
 	
 	for(i = 1;i < 3;i++)
 	{
 		if(guessnum == number)
 		{
-			printf("¹§Ï²Äã²Â¶ÔÁË£¡");
+			printf("æ­å–œä½ çŒœå¯¹äº†ï¼");
 			break;
 		}
 		else if(guessnum < number)
 		{
-			printf("²Â´óµã£¡");
+			printf("çŒœå¤§ç‚¹ï¼");
 		}
 		else if(guessnum > number)
 		{
-			printf("²ÂĞ¡µã£¡");
+			printf("çŒœå°ç‚¹ï¼");
 		}
 	}	 
 	if(i == 3)
 	{
-		printf("¼ÌĞøÇë°´ENTER£¬½áÊøÇë°´N");
+		printf("ç»§ç»­è¯·æŒ‰ENTERï¼Œç»“æŸè¯·æŒ‰N");
 		scanf("%c",&en);
 		if(en != 'n')
 		{
@@ -40,7 +40,7 @@ void main()
 		}
 		else
 		{
-			printf("ÔÙ¼û£¡");
+			printf("å†è§ï¼");
 		}
 	}
 	

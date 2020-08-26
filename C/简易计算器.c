@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -12,7 +12,7 @@ void main()
 	
 	while(jx == 'y')
 	{
-		printf("ÇëÊäÈëÒª¼ÆËãµÄÊı×Ö£º");
+		printf("è¯·è¾“å…¥è¦è®¡ç®—çš„æ•°å­—ï¼š");
 		scanf("%f%c%f",&num1,&ch,&num2);
 	
 		switch(ch)
@@ -39,14 +39,14 @@ void main()
 				}
 				else
 				{
-					printf("³ıÊı²»ÄÜÎª0");
+					printf("é™¤æ•°ä¸èƒ½ä¸º0");
 					break;
 				}
 			default:
-				printf("ÊäÈë²»ÕıÈ·");
+				printf("è¾“å…¥ä¸æ­£ç¡®");
 				break;
 		}
-		printf("¼ÌĞøÊäÈëy,ÍË³öÊäÈën!");
+		printf("ç»§ç»­è¾“å…¥y,é€€å‡ºè¾“å…¥n!");
 		getchar();
 		scanf("%c",&jx);
 		getchar();

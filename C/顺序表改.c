@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 #define MAXSIZE 100
@@ -17,9 +17,9 @@ void main()
 	int ys;
 	int flag=0;
 	
-	printf("ÇëÊäÈëÒªĞŞ¸ÄµÄÏÂ±ê:");
+	printf("è¯·è¾“å…¥è¦ä¿®æ”¹çš„ä¸‹æ ‡:");
 	scanf("%d",&xb);
-	printf("ÇëÊäÈëÒªĞŞ¸ÄµÄÔªËØ:");
+	printf("è¯·è¾“å…¥è¦ä¿®æ”¹çš„å…ƒç´ :");
 	scanf("%d",&ys);
 	for(i=0;i<10;i++)
 	{
@@ -31,7 +31,7 @@ void main()
 	}
 	if(flag==0)
 	{
-		printf("Ã»ÓĞ¸ÃÏÂ±ê!\n");
+		printf("æ²¡æœ‰è¯¥ä¸‹æ ‡!\n");
 	}
 	else
 	{
@@ -42,5 +42,5 @@ void main()
 	}
 	printf("\n");
 	
-	system("pause");//·ÀÖ¹exeÎÄ¼şÉÁÍË
+	system("pause");//é˜²æ­¢exeæ–‡ä»¶é—ªé€€
 }

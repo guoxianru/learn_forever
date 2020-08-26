@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -17,7 +17,7 @@ void main()
 		i++;
 	}
 	
-	printf("Ç°20ÏîºÍÊÇ%.2f\n",sum);
+	printf("å‰20é¡¹å’Œæ˜¯%.2f\n",sum);
 	
 	system("pause");
 }

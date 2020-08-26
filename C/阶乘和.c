@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author：GXR */
+/* Author锛欸XR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -9,7 +9,7 @@ void main()
 	int n;
 	int sum;
 	
-	printf("输入一个数:");
+	printf("杈撳叆涓�涓暟:");
 	scanf("%d",&n);
 	
 	for(i=1;i<=n;i++)
@@ -17,7 +17,7 @@ void main()
 		j*=i;
 		sum+=j;
 	}
-	printf("%d阶乘和是%d\n",n,sum);
+	printf("%d闃朵箻鍜屾槸%d\n",n,sum);
 	
 	system("pause");
 }

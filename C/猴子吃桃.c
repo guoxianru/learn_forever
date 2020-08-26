@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -11,7 +11,7 @@ void main()
    {
 	   num=(num+1)*2;
    }
-    printf("µÚÒ»ÌìÊıÁ¿%d\n",num);
+    printf("ç¬¬ä¸€å¤©æ•°é‡%d\n",num);
    
    	system("pause");
 }

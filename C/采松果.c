@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -11,7 +11,7 @@ void main()
 	{
 		if(20*(day-i)+12*i==112)
 		{
-			printf("%dÌìÏÂÓê\n",i);
+			printf("%då¤©ä¸‹é›¨\n",i);
 			break;
 		}
 	}

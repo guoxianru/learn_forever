@@ -1,12 +1,12 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 
 void main()
 {
 	int a=1,b=1,c,i;
-    printf("´òÓ¡Ç°20ÏîµÄÖµ:\n");
+    printf("æ‰“å°å‰20é¡¹çš„å€¼:\n");
     printf("%d\n%d\n",a,b);
     for(i=3;i<=20;i++)
 	{
@@ -15,5 +15,5 @@ void main()
         a=b;    
         b=c;
 	}
-	system("pause");//·ÀÖ¹exeÎÄ¼şÉÁÍË
+	system("pause");//é˜²æ­¢exeæ–‡ä»¶é—ªé€€
 }

@@ -1,17 +1,17 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
 {
 	int number;
 	
-	printf("ÇëÊäÈë³É¼¨:");
+	printf("è¯·è¾“å…¥æˆç»©:");
 	scanf("%d",&number);
 	
 	if((number<0) || (number>100))
 	{
-		printf("ÊäÈë³É¼¨²»ºÏ·¨!");
+		printf("è¾“å…¥æˆç»©ä¸åˆæ³•!");
 	}
 	else if((number >= 0) && (number < 60))
 	{

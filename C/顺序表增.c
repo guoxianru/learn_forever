@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 #define MAXSIZE 100
@@ -17,21 +17,21 @@ void main()
 	int num=0;
 	int ys;
 	int xb;
-	printf("ÇëÊäÈëË³Ğò±íµÄ³¤¶È:");
+	printf("è¯·è¾“å…¥é¡ºåºè¡¨çš„é•¿åº¦:");
 	scanf("%d",&chang);
 	for(i=0;i<chang;i++)
 	{
-		printf("ÇëÊäÈëµÚ%d¸öÔªËØ:",i+1);
+		printf("è¯·è¾“å…¥ç¬¬%dä¸ªå…ƒç´ :",i+1);
 		scanf("%d",&s.a[i]);
 		num++;
 	}
-	printf("ÇëÊäÈëÒª²åÈëµÄÔªËØ:");
+	printf("è¯·è¾“å…¥è¦æ’å…¥çš„å…ƒç´ :");
 	scanf("%d",&ys);
-	printf("ÇëÊäÈëÒª²åÈëµÄÏÂ±ê:");
+	printf("è¯·è¾“å…¥è¦æ’å…¥çš„ä¸‹æ ‡:");
 	scanf("%d",&xb);
 	if(xb<0 || xb>num-1)
 	{
-		printf("ÊäÈëÏÂ±êÓĞÎó!");
+		printf("è¾“å…¥ä¸‹æ ‡æœ‰è¯¯!");
 	}
 	else
 	{
@@ -48,5 +48,5 @@ void main()
 	}
 	printf("\n");
 	
-	system("pause");//·ÀÖ¹exeÎÄ¼şÉÁÍË
+	system("pause");//é˜²æ­¢exeæ–‡ä»¶é—ªé€€
 }

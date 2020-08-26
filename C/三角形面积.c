@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -10,22 +10,22 @@ void main()
 	int s;
 	int area;
 	 
-	printf("ÇëÊäÈëÈı½ÇĞÎµÄÒ»Ìõ±ß³¤£º");
+	printf("è¯·è¾“å…¥ä¸‰è§’å½¢çš„ä¸€æ¡è¾¹é•¿ï¼š");
 	scanf("%d" , &a);
-	printf("ÇëÊäÈëÈı½ÇĞÎµÄÒ»Ìõ±ß³¤£º");
+	printf("è¯·è¾“å…¥ä¸‰è§’å½¢çš„ä¸€æ¡è¾¹é•¿ï¼š");
 	scanf("%d" , &b);
-	printf("ÇëÊäÈëÈı½ÇĞÎµÄÒ»Ìõ±ß³¤£º");
+	printf("è¯·è¾“å…¥ä¸‰è§’å½¢çš„ä¸€æ¡è¾¹é•¿ï¼š");
 	scanf("%d" , &c);
 	
 	if((a+b>c) && (a+c>b) && (b+c>a))
 	{
 		s = 0.5*(a+b+c);
 		area = sqrt(s*(s-a)*(s-b)*(s-c));
-		printf("Õâ¸öÈı½ÇĞÎµÄÃæ»ıÊÇ%d" , area);
+		printf("è¿™ä¸ªä¸‰è§’å½¢çš„é¢ç§¯æ˜¯%d" , area);
 	}
 	else
 	{
-		printf("Õâ²»ÊÇ¸öÈı½ÇĞÎ¡£");
+		printf("è¿™ä¸æ˜¯ä¸ªä¸‰è§’å½¢ã€‚");
 	}
 	
 	system("pause");

@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
@@ -9,7 +9,7 @@ void main()
 	char ch[100];
 	
 	scanf("%s",ch);
-	if(strcmp(ch,"Ò»")==0)
+	if(strcmp(ch,"ä¸€")==0)
 	{
 		printf("%s",ch);
 	}

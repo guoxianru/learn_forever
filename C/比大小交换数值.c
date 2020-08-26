@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -8,7 +8,7 @@ void main()
 	int b;
 	int c;
 	
-	printf("ÇëÊäÈëÁ½¸öÊý×Ö:");
+	printf("è¯·è¾“å…¥ä¸¤ä¸ªæ•°å­—:");
 	scanf("%d %d",&a,&b);
 	
 	if(a>b)

@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -8,7 +8,7 @@ void main()
 	char ch2;
 	char ch3;
 	
-	printf("ÇëÊäÈë×ÖÄ¸£º");
+	printf("è¯·è¾“å…¥å­—æ¯ï¼š");
 	scanf("%c",&ch1);
 	scanf("%c",&ch2);
 	scanf("%c",&ch3);

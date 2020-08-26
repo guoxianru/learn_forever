@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 #define MAXSIZE 5
@@ -28,10 +28,10 @@ void main()
 	while(1)
 	{
 		printf("++++++++++++++++++++\n");
-		printf("1.½øÕ»\n");
-		printf("2.³öÕ»\n");
-		printf("3.´òÓ¡´ÓÕ»¶¥µ½Õ»µ×µÄËùÓĞÔªËØ\n");
-		printf("0.ÍË³ö\n");
+		printf("1.è¿›æ ˆ\n");
+		printf("2.å‡ºæ ˆ\n");
+		printf("3.æ‰“å°ä»æ ˆé¡¶åˆ°æ ˆåº•çš„æ‰€æœ‰å…ƒç´ \n");
+		printf("0.é€€å‡º\n");
 		printf("++++++++++++++++++++\n");
 		scanf("%d",&bianhao);
 		switch(bianhao)
@@ -48,32 +48,32 @@ void main()
 			case 0:
 				exit(0);
 			default:
-				printf("Ñ¡Ôñ´íÎó!\n");
+				printf("é€‰æ‹©é”™è¯¯!\n");
 				break;
 		}
 	}
-	system("pause");//·ÀÖ¹exeÎÄ¼şÉÁÍË
+	system("pause");//é˜²æ­¢exeæ–‡ä»¶é—ªé€€
 }
 
 void jin()
 {
 	if(a.top==MAXSIZE-1)
 	{
-		printf("ÂúÕ»!\n");
+		printf("æ»¡æ ˆ!\n");
 	}
 	else
 	{
 		a.top++;
-		printf("ÇëÊäÈëÒª½øÕ»µÄÑ§ÉúĞÅÏ¢:\n");
-		printf("ÇëÊäÈëÑ§ÉúµÄÑ§ºÅ:");
+		printf("è¯·è¾“å…¥è¦è¿›æ ˆçš„å­¦ç”Ÿä¿¡æ¯:\n");
+		printf("è¯·è¾“å…¥å­¦ç”Ÿçš„å­¦å·:");
 		scanf("%d",&a.s[a.top].xh);
-		printf("ÇëÊäÈëÑ§ÉúµÄĞÕÃû:");
+		printf("è¯·è¾“å…¥å­¦ç”Ÿçš„å§“å:");
 		scanf("%s",a.s[a.top].name);
-		printf("ÇëÊäÈëÑ§ÉúµÄ¼®¹á:");
+		printf("è¯·è¾“å…¥å­¦ç”Ÿçš„ç±è´¯:");
 		scanf("%s",a.s[a.top].add);
-		printf("ÇëÊäÈëÑ§ÉúµÄµç»°:");
+		printf("è¯·è¾“å…¥å­¦ç”Ÿçš„ç”µè¯:");
 		scanf("%d",&a.s[a.top].tel);
-		printf("½øÕ»³É¹¦!\n");
+		printf("è¿›æ ˆæˆåŠŸ!\n");
 	}
 }
 
@@ -81,21 +81,21 @@ void chu()
 {
 	if(a.top==-1)
 	{
-		printf("¿ÕÕ»!\n");
+		printf("ç©ºæ ˆ!\n");
 	}
 	else
 	{
-		printf("³öÕ»µÄÑ§ÉúÊÇ%s\n",a.s[a.top--].name);
+		printf("å‡ºæ ˆçš„å­¦ç”Ÿæ˜¯%s\n",a.s[a.top--].name);
 	}
 }
 
 void dayin()
 {
 	int i;
-	printf("´ÓÕ»¶¥µ½Õ»µ×µÄËùÓĞÔªËØÊÇ:\n");
+	printf("ä»æ ˆé¡¶åˆ°æ ˆåº•çš„æ‰€æœ‰å…ƒç´ æ˜¯:\n");
 	for(i=a.top;i>-1;i--)
 	{
-		printf("Ñ§ºÅ:%d,ĞÕÃû:%s,¼®¹á:%s,ÊÖ»úºÅ:%d\n",a.s[i].xh,a.s[i].name,a.s[i].add,a.s[i].tel);
+		printf("å­¦å·:%d,å§“å:%s,ç±è´¯:%s,æ‰‹æœºå·:%d\n",a.s[i].xh,a.s[i].name,a.s[i].add,a.s[i].tel);
 	}
 }
 

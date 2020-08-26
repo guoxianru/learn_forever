@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -17,7 +17,7 @@ void main()
 			{
 				if(z%2==0)
 				{
-					printf("ÄĞ:%d\nÅ®:%d\nĞ¡º¢:%d\n",x,y,z);
+					printf("ç”·:%d\nå¥³:%d\nå°å­©:%d\n",x,y,z);
 				}
 			}
 		}

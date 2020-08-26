@@ -11,10 +11,10 @@ struct student
 
 void main()
 {
-	struct student a = {"王五",22};
+	struct student a = {"鐜嬩簲",22};
 	fun(&a);
 	
-	system("pause");//防止exe文件闪退
+	system("pause");//闃叉exe鏂囦欢闂��
 }
 
 void fun(struct student *b)

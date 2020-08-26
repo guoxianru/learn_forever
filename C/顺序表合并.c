@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 #define MAXSIZE 100
@@ -11,17 +11,17 @@ struct slist
 
 void main()
 {
-	struct slist la={{1,3,5,7,9},5}; //¶¨ÒåË³Ğò±íla,lb²¢¸³³õÖµ¡£
+	struct slist la={{1,3,5,7,9},5}; //å®šä¹‰é¡ºåºè¡¨la,lbå¹¶èµ‹åˆå€¼ã€‚
 	struct slist lb={{2,4,6,8},4};
-	struct slist lc;  //ºÏ²¢ºóµÄË³Ğò±ílc
+	struct slist lc;  //åˆå¹¶åçš„é¡ºåºè¡¨lc
 	int i;
-	int x=0;//x±êÊ¶laË³Ğò±íµÄÏÂ±ê
-	int y=0;//y±êÊ¶lbË³Ğò±íµÄÏÂ±ê
-	int z=0;//z±êÊ¶lcË³Ğò±íµÄÏÂ±ê
+	int x=0;//xæ ‡è¯†laé¡ºåºè¡¨çš„ä¸‹æ ‡
+	int y=0;//yæ ‡è¯†lbé¡ºåºè¡¨çš„ä¸‹æ ‡
+	int z=0;//zæ ‡è¯†lcé¡ºåºè¡¨çš„ä¸‹æ ‡
 	
-	while(x<la.len && y<lb.len)   //µ±Ò»¸ö±íµÄÔªËØ·ÅÍêÍË³öÑ­»·
+	while(x<la.len && y<lb.len)   //å½“ä¸€ä¸ªè¡¨çš„å…ƒç´ æ”¾å®Œé€€å‡ºå¾ªç¯
 	{
-		if(la.a[x]<=lb.a[y])     //½«Ğ¡µÄ·Åµ½ĞÂË³Ğò±íÖĞ
+		if(la.a[x]<=lb.a[y])     //å°†å°çš„æ”¾åˆ°æ–°é¡ºåºè¡¨ä¸­
 		{
 			lc.a[z]=la.a[x];
 			x++;
@@ -35,21 +35,21 @@ void main()
 		}
 	}
 	
-	while(x<la.len)   //la±íÎ´½áÊø»¹ÓĞÔªËØ,½«Ê£ÓàÔªËØ¼Óµ½lc±í
+	while(x<la.len)   //laè¡¨æœªç»“æŸè¿˜æœ‰å…ƒç´ ,å°†å‰©ä½™å…ƒç´ åŠ åˆ°lcè¡¨
 	{
 			lc.a[z]=la.a[x];
 			x++;
 			z++;
 	}
 	
-	while(y<lb.len)  //lb±íÎ´½áÊø»¹ÓĞÔªËØ,½«Ê£ÓàÔªËØ¼Óµ½lc±í
+	while(y<lb.len)  //lbè¡¨æœªç»“æŸè¿˜æœ‰å…ƒç´ ,å°†å‰©ä½™å…ƒç´ åŠ åˆ°lcè¡¨
 	{
 			lc.a[z]=lb.a[y];
 			y++;
 			z++;
 	}
 	
-	for(i=0;i<z;i++)  //Êä³öºÏ²¢ºóµÄË³Ğò±í
+	for(i=0;i<z;i++)  //è¾“å‡ºåˆå¹¶åçš„é¡ºåºè¡¨
 	{
 		printf("%d\t",lc.a[i]);
 	}

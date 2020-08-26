@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 
@@ -18,10 +18,10 @@ void main()
 			{
 				if(z%3==0)
 				{
-					printf("¹«¼¦:%d\nÄ¸¼¦:%d\nĞ¡¼¦:%d\n\n",x,y,z);
+					printf("å…¬é¸¡:%d\næ¯é¸¡:%d\nå°é¸¡:%d\n\n",x,y,z);
 				}
 			}
 		}
 	}
-	system("pause");//·ÀÖ¹exeÎÄ¼şÉÁÍË
+	system("pause");//é˜²æ­¢exeæ–‡ä»¶é—ªé€€
 } 

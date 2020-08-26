@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -9,7 +9,7 @@ void main()
 
 	for (int i = 0; i <6; ++i)
 	{
-		printf("ÊäÈëÊý×Ö:");
+		printf("è¾“å…¥æ•°å­—:");
 		scanf("%d",&num[i]);
 	}
 	for (int i = 0; i <6; ++i)
@@ -17,5 +17,5 @@ void main()
 		printf("%d ",num[i]);
 	}
 
-	system("pause");//·ÀÖ¹exeÎÄ¼þÉÁÍË
+	system("pause");//é˜²æ­¢exeæ–‡ä»¶é—ªé€€
 }

@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author：GXR */
+/* Author锛欸XR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -8,7 +8,7 @@ void main()
 	int j;
 	int m;
 	
-	printf("几行几列:");
+	printf("鍑犺鍑犲垪:");
 	scanf("%d",&m);
 	
 	i=1;

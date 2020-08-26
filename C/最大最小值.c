@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -12,7 +12,7 @@ void main()
 	int _max;
 	int _min;
 	
-	printf("ÊäÈëÎå¸öÊý×Ö:");
+	printf("è¾“å…¥äº”ä¸ªæ•°å­—:");
 	scanf("%d%d%d%d%d",&a,&b,&c,&d,&e);
 	
 	_max = a;
@@ -50,7 +50,7 @@ void main()
 	{
 		_min = e;
 	}
-	printf("ÕâÎå¸öÊý×ÖÖÐ×î´óÖµÊÇ%d,×îÐ¡ÖµÊÇ%d\n",_max,_min);
+	printf("è¿™äº”ä¸ªæ•°å­—ä¸­æœ€å¤§å€¼æ˜¯%d,æœ€å°å€¼æ˜¯%d\n",_max,_min);
 	
 	system("pause");
 }	

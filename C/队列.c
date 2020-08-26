@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 #define MAXSIZE 5
@@ -31,10 +31,10 @@ void main()
 	while(1)
 	{
 		printf("==========================\n");
-		printf("1.Èë¶Ó\n");
-		printf("2.³ö¶Ó\n");
-		printf("3.´òÓ¡¶ÓÍ·µ½¶ÓÎ²ËùÓĞÉÌÆ·\n");
-		printf("0.ÍË³ö\n");
+		printf("1.å…¥é˜Ÿ\n");
+		printf("2.å‡ºé˜Ÿ\n");
+		printf("3.æ‰“å°é˜Ÿå¤´åˆ°é˜Ÿå°¾æ‰€æœ‰å•†å“\n");
+		printf("0.é€€å‡º\n");
 		printf("==========================\n");
 		scanf("%d",&bh);
 		switch(bh)
@@ -51,32 +51,32 @@ void main()
 			case 0:
 				exit(0);
 			default:
-				printf("ÊäÈëÓĞÎó!\n");
+				printf("è¾“å…¥æœ‰è¯¯!\n");
 		}
 	}
-	system("pause");//·ÀÖ¹exeÎÄ¼şÉÁÍË
+	system("pause");//é˜²æ­¢exeæ–‡ä»¶é—ªé€€
 }
 
 void rudui()
 {
 	if((a.area+1)%MAXSIZE==a.front)
 	{
-		printf("Òç³ö\n");	
+		printf("æº¢å‡º\n");	
 	}
 	else
 	{
-		printf("ÇëÊäÈëÈë¶ÓÉÌÆ·:\n");
-		printf("\tÇëÊäÈëÉÌÆ·±àºÅ:");
+		printf("è¯·è¾“å…¥å…¥é˜Ÿå•†å“:\n");
+		printf("\tè¯·è¾“å…¥å•†å“ç¼–å·:");
 		scanf("%d",&a.s[a.area].bianhao);
-		printf("\tÇëÊäÈëÉÌÆ·Ãû³Æ:");
+		printf("\tè¯·è¾“å…¥å•†å“åç§°:");
 		scanf("%s",a.s[a.area].name);
-		printf("\tÇëÊäÈëÉÌÆ·µ¥¼Û:");
+		printf("\tè¯·è¾“å…¥å•†å“å•ä»·:");
 		scanf("%f",&a.s[a.area].price);
-		printf("\tÇëÊäÈëÉÌÆ·ÃèÊö:");
+		printf("\tè¯·è¾“å…¥å•†å“æè¿°:");
 		scanf("%s",a.s[a.area].label);
 		a.area++;
 		a.area=a.area%MAXSIZE;
-		printf("Èë¶Ó³É¹¦\n");	
+		printf("å…¥é˜ŸæˆåŠŸ\n");	
 	}
 }
 
@@ -84,11 +84,11 @@ void chudui()
 {
 	if(a.area==a.front)
 	{
-		printf("¶Ó¿Õ,Ã»ÓĞÔªËØ\n");	
+		printf("é˜Ÿç©º,æ²¡æœ‰å…ƒç´ \n");	
 	}
 	else
 	{
-		printf("³ö¶ÓµÄÉÌÆ·Ãû³ÆÊÇ%s,ÉÌÆ·±àºÅÊÇ%d:\n",a.s[a.front].name,a.s[a.front].bianhao);
+		printf("å‡ºé˜Ÿçš„å•†å“åç§°æ˜¯%s,å•†å“ç¼–å·æ˜¯%d:\n",a.s[a.front].name,a.s[a.front].bianhao);
 		a.front++;
 		a.front=a.front%MAXSIZE;
 	}
@@ -98,7 +98,7 @@ void dayin()
 {
 	for(i=a.front;i<a.area;i++)
 	{
-		printf("ÉÌÆ·±àºÅ:%d,ÉÌÆ·Ãû³Æ:%s,ÉÌÆ·µ¥¼Û:%.2f,ÉÌÆ·ÃèÊö:%s\n",a.s[i].bianhao,a.s[i].name,a.s[i].price,a.s[i].label);
+		printf("å•†å“ç¼–å·:%d,å•†å“åç§°:%s,å•†å“å•ä»·:%.2f,å•†å“æè¿°:%s\n",a.s[i].bianhao,a.s[i].name,a.s[i].price,a.s[i].label);
 	}
 }
 

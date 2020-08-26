@@ -1,5 +1,5 @@
 /* Note:Your choice is C IDE */
-/* Author£ºGXR */
+/* Authorï¼šGXR */
 #include "stdio.h"
 #include "windows.h"
 void main()
@@ -10,7 +10,7 @@ void main()
 	int c;
 	int sum;
 	
-	printf("ÇëÊäÈëÒ»¸öÈıÎ»Êı£º");
+	printf("è¯·è¾“å…¥ä¸€ä¸ªä¸‰ä½æ•°ï¼š");
 	scanf("%d",&number);
 	
 	if((number >=100) && (number <= 999))
@@ -20,11 +20,11 @@ void main()
 		c = number/100;
 		sum = a+b+c;
 
-		printf("Õâ¸öÈıÎ»Êı¸öÎ»£¬Ê®Î»£¬°ÙÎ»Êı×ÖÖ®ºÍÊÇ£º%d",sum);
+		printf("è¿™ä¸ªä¸‰ä½æ•°ä¸ªä½ï¼Œåä½ï¼Œç™¾ä½æ•°å­—ä¹‹å’Œæ˜¯ï¼š%d",sum);
 	}
 	else
 	{
-		printf("Õâ²»ÊÇ¸öÈıÎ»Êı£¡");
+		printf("è¿™ä¸æ˜¯ä¸ªä¸‰ä½æ•°ï¼");
 	}
 	
 	system("pause");
