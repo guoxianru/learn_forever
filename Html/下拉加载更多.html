@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉加载更多</title>
+</head>
+<body>
+<p class="more" style="width: 100%;height: 60px;color: white;background-color: #3b4249;
+                font-size: 20px;text-align: center;line-height: 60px;user-select: none">↓ 下拉加载更多 ↓</p>
+<!--距离底部50px的时候加载新的内容-->
+<script type="text/javascript">
+    // 整个文档高度
+    var totalHeight = $(document).height();
+    // 浏览器可视窗口高度
+    var seeHeight = $(window).height();
+    // 浏览器当前窗口文档body的高度
+    var thisBodyHeight = $(document.body).height();
+    // 浏览器当前窗口文档body的总高度 包括border padding margin
+    var totalBodyHeight = $(document.body).outerHeight(true);
+    // 浏览器当前窗口可视区域宽度
+    var thisWidth = $(window).width();
+    // 浏览器当前窗口文档对象宽度
+    var thisDocumentWidth = $(document).width();
+    // 浏览器当前窗口文档body的宽度
+    var thisBodyWidth = $(document.body).width();
+    // 浏览器当前窗口文档body的总宽度 包括border padding margin
+    var totalBodyWidth = $(document.body).outerWidth(true);
+    // 浏览器可视窗口顶端距离网页顶端的高度（垂直偏移）
+    var scrollTop = $(window).scrollTop();
+    // 触发开关，防止多次调用事件
+    var isbool = true;
+    // 页码
+    var pagenum = 0;
+    // 监听鼠标滑动
+    $(window).scroll(function () {
+        scrollTop = $(window).scrollTop();
+        totalHeight = $(document).height();
+        if ((scrollTop + seeHeight + 50 > totalHeight) && isbool === true) {
+            isbool = false;
+            pagenum++;
+            setTimeout(function () {
+                $.get("/blog/more/" + pagenum + "/", function (data) {
+                    if (data === "empty") {
+                        $(".more").text('↑ 全部加载完毕 ↑');
+                    } else {
+                        $(".itemlist").append(data);
+                        isbool = true;
+                    }
+                });
+            }, 300);
+        }
+    })
+</script>
+<!--距离底部50px的时候加载新的内容-->
+</body>
+</html>
