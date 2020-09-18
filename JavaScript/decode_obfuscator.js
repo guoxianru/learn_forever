@@ -1,12 +1,12 @@
 ﻿/*****************************************************
 Module name:decode_obfuscator.js
 Author:陆小凤
-Date:2020.8.29
-Version:V2.0
+Date:2020.9.19
+Version:V4.0
 
 混淆工具地址:https://obfuscator.io/
 
-脚本仅用于被obfuscator混淆了的代码，如果js魔改过，
+脚本仅用于被obfuscator混淆了的代码，如果源代码魔改过，
 
 则可能会导致本脚本失效。
 
@@ -27,6 +27,7 @@ https://t.zsxq.com/FMRf2ZV
 
 const fs = require('fs');
 
+//babel库相关，解析，转换，构建，生产
 const parser    = require("@babel/parser");
 const traverse  = require("@babel/traverse").default;
 const types     = require("@babel/types");
@@ -56,45 +57,87 @@ if (process.argv.length > 3)
 }
 
 let jscode = fs.readFileSync(encode_file, {encoding: "utf-8"});
-let ast = parser.parse(jscode);
+let ast    = parser.parse(jscode);
 
+
+ 
 
 /***********************************************************
+function name:traverse_literal
+traverse:
+var a = "\u0031\x32",b = 0x25,c = 0b10001001,d = 0o123456;
+=====>
+var a = "12",b = 37,c = 137,d = 42798;
+注意:有些"\uxxxx" 或者 "\x**"，替换出来时可能是乱码。
 
-NumericLiteral ---> Literal
-StringLiteral  ---> Literal
-用于处理已十六进制显示的字符串或者数值
-
+注: 参考 官方插件 plugin-transform-literals，略有改动。
 ***********************************************************/
-const delete_extra = 
-{
-    "NumericLiteral|StringLiteral":function(path)
-    {
-      delete path.node.extra;
-    },
+const traverse_literal = {
+	NumericLiteral({node}) {
+		if (node.extra && /^0[obx]/i.test(node.extra.raw)) {
+			node.extra = undefined;
+		}
+  },
+  StringLiteral({node}) 
+  {
+  	if (node.extra && /\\[ux]/gi.test(node.extra.raw)) {
+  		node.extra = undefined;
+    }
+  },
 }
 
-traverse(ast, delete_extra);
+traverse(ast, traverse_literal);
 
-/********************************************************
 
-BinaryExpression --> Literal,object对象还原预处理
-UnaryExpression  --> Literal,object对象还原预处理
+/*********************************************
+判断一个节点是否是字面量，仅支持判断
+Literal表达式,或者数组类型的节点其元素是否全部为字面量
+欢迎补充
 
-********************************************************/
-const combin_BinaryExpression = 
+ArrayExpression
+ObjectExpression
+CallExpression
+这三种类型。
+*********************************************/
+function is_path_literal(path)
 {
-	  "BinaryExpression|UnaryExpression|ConditionalExpression"(path)
-    {
-    	if (path.type == "UnaryExpression" && path.node.operator == "-")
-    	{
-    		return;
-    	}
-    	const {confident,value} = path.evaluate();
-    	value != "Infinity" && confident && path.replaceInline(types.valueToNode(value));
-    },
+	let key = null;
+	if (path.isLiteral()) return true;	
+	else if (path.isArrayExpression())
+	{
+		key = "elements";
+	}
+	else if (path.isObjectExpression())
+	{
+		key = "properties";
+	}
+	else if (path.isCallExpression())
+	{
+		key = "arguments";
+	}
+	
+	else
+	{
+		var e = new Error();
+    e.code = 22;
+    e.message = 'Can only jugde ArrayExpression、ObjectExpression and Literal!';
+    e.name = 'Type Error';
+    throw e;		
+	}
+	
+	let elements = path.get(key);
+	
+	if (elements.length == 0) return false;
+	
+	if (key == "properties")
+	{
+		return elements.every(element => element.get("value").isLiteral());
+	}
+	else
+	{
+		return elements.every(element=>element.isLiteral());
+	}
 }
-traverse(ast, combin_BinaryExpression);
 
 /********************************************************************
 
@@ -104,37 +147,33 @@ obfuscator 混淆过的js代码特征很明显 大数组 + 移位函数 + 解密
 下面的插件将调用处的CallExpression直接计算出来，然后再替换值。
 
 *********************************************************************/
-const decode_str = {
-	
+const call_to_str = {
 	VariableDeclarator(path)
 	{
-		let {id,init} = path.node;
-		if (!types.isArrayExpression(init) || init.elements.length == 0) return;
-		let code = path.toString();
+		let {id} = path.node;
+		let name = id.name;
+		let init_path = path.get('init');
+		if (!init_path.isArrayExpression()) return;
+		if (!is_path_literal(init_path)) return;
+
 		
-		let second_sibling = path.parentPath.getNextSibling(); //获取移位函数节点
-		let third_sibling = second_sibling.getNextSibling();   //获取解密函数节点
+
+		let second_sibling = path.parentPath.getNextSibling();  //获取移位函数节点
+		let third_sibling  = second_sibling.getNextSibling();   //获取解密函数节点
 		
 		//******************************************************特征判断开始
-		if (!second_sibling.isExpressionStatement() ||
-		    !third_sibling.isVariableDeclaration()) 
+		if (!second_sibling.isExpressionStatement() ||!third_sibling.isVariableDeclaration()) 
 		{
 			return;
 		}
-	
 		let expression = second_sibling.get('expression');
 		if (!expression.isCallExpression()) return;
-		
-		
-		
 		let {callee,arguments} = expression.node;
-		if (!types.isFunctionExpression(callee) || arguments.length < 2 ||
-		    !types.isIdentifier(arguments[0],{name:id.name}) || 
-		    !types.isNumericLiteral(arguments[1]))
-		{
-		   	return;
-		}
-
+		if (!types.isFunctionExpression(callee)) return;
+		if (arguments.length < 2) return;
+		if (!types.isIdentifier(arguments[0],{name:name})) return;
+		if (!types.isNumericLiteral(arguments[1])) return;
+		
 		let declarations = third_sibling.node.declarations;
 		if (declarations.length < 1 || !types.isFunctionExpression(declarations[0].init)) 
 		{
@@ -142,13 +181,10 @@ const decode_str = {
 		}
 		//******************************************************特征判断结束
 		
-		
-		
 		let end = third_sibling.node.end; //防止遍历函数体里的调用
-		let func_name = third_sibling.node.declarations[0].id.name; //解密函数的函数名，用于遍历其作用域
+
 		let source_code = second_sibling.toString();
-		
-		if (source_code.indexOf('removeCookie') !== -1)
+		if (source_code.indexOf('removeCookie') != -1)
 		{//如果含有检测格式化的代码，处理移位函数及解密函数
 			let second_arg_node = callee.params[1];
 			let body = callee.body.body;
@@ -158,47 +194,63 @@ const decode_str = {
 			body.push(types.ExpressionStatement(types.CallExpression(call_fun, [second_arg_node])));
 			
 			third_sibling.traverse({
-				AssignmentExpression(_path) {
-					let left = _path.get('left');
-					let left_code = left.toString();
-					let right = _path.get('right');
-					let right_code = right.toString();
-					if (right_code.indexOf(func_name) === -1 ||right_code.indexOf(left_code) === -1 ) 
-          {
-          	return;
-          }
-          const if_parent_path = _path.findParent(p => {return p.isIfStatement();});
-          if_parent_path && if_parent_path.replaceWith(_path.node);
+				IfStatement(path)
+				{
+					let {consequent,alternate} = path.node;
+					if (alternate == null) return;
+					let body = consequent.body;
+					if (!body || body.length < 2) return;
+					if (!types.isIfStatement(body[0]) || !types.isExpressionStatement(body[1])) return;
+					path.replaceInline(body[1]);
         },
       })
     }
+   
+    let third_id   = declarations[0].id;
+    let third_init = declarations[0].init;
+    
+    let func_name = third_id.name;
+    let params = third_init.params;
+    let body = third_init.body.body;
+    
+    let new_node = types.AssignmentExpression("=",third_id,types.ObjectExpression([]));
+    body.unshift(types.ExpressionStatement(new_node));
+    body.unshift(second_sibling.node);
+    body.unshift(path.parentPath.node);
+    let {code} = generator(third_init.body);
+    body.splice(0,3);
 
-		code += ';!' + second_sibling.toString() + third_sibling.toString();
-    //eval到本地环境
-		eval(code);
-		
-		const binding = third_sibling.scope.getBinding(func_name);
+    let new_params = [];
+    params.forEach((ele,index) =>{new_params[index] = ele.name;});
+    let func_call = new Function(new_params,code);
+    
+    
+    const binding = third_sibling.scope.getBinding(func_name);
 		if (!binding || binding.constantViolations.length > 0)
 		{
 			return;
 		}
 		
 		let can_removed = true;
-		
 		for (const refer_path of binding.referencePaths)
 		{
-		  if (refer_path.node.start < end)
+			if (refer_path.node.start < end)
 			{
 				continue;
 			}
 			let call_path = refer_path.findParent(p => {return p.isCallExpression();});
-
-			try
+			let arg_path = call_path.get("arguments");
+			if (!is_path_literal(call_path))
 			{
-				let value = eval(call_path.toString());
-				console.log(call_path.toString(),"-->",value);
-				call_path.replaceWith(types.valueToNode(value))
-      }catch(e){can_removed = false;}
+				can_removed = false;
+				continue;
+			}
+			let {arguments} = call_path.node;
+			let new_arguments = []
+			arguments.forEach((ele,index) =>{new_arguments[index] = ele.value;});
+			let value = func_call.apply(null,new_arguments);
+			console.log(call_path.toString(),"-->",value);
+			call_path.replaceInline(types.valueToNode(value));
 		}
 		
 		if (can_removed)
@@ -206,16 +258,24 @@ const decode_str = {
 			path.remove();
 			second_sibling.remove();
 			third_sibling.remove();
-		}
+		}			
 	},
 }
-traverse(ast, decode_str);
+traverse(ast, call_to_str);
 
+/********************************************************************
+object对象还原预处理 
 
+SequenceExpression ---> ExpressionStatement
+MemberExpression      --> Literal,object对象还原预处理
+a.length  ====> a["length"];
+参考官方插件
+plugin-transform-member-expression-literals
+略有修改
 
-traverse(ast, combin_BinaryExpression);
-//SequenceExpression ---> ExpressionStatement,object对象还原预处理 
-const decode_comma = {
+*********************************************************************/
+
+const pre_decode_object = {
 	ExpressionStatement(path)
 	{
 		//****************************************特征判断开始
@@ -236,16 +296,55 @@ const decode_comma = {
 		})
 		path.replaceInline(body);
 	},
+	MemberExpression:
+	{
+		exit({node})
+		{
+			const prop = node.property;
+			if (!node.computed && types.isIdentifier(prop))
+			{
+				node.property = types.StringLiteral(prop.name);
+				node.computed = true;
+			}
+    }
+  },	
 }
-traverse(ast, decode_comma);
+traverse(ast, pre_decode_object);
 
 
-/*******************************************************
-还原object，key多为字符串，value为字符串和函数
-*******************************************************/
+/********************************************************
+
+BinaryExpression      --> Literal,object对象还原预处理
+1+2       =====> 3
+UnaryExpression       --> Literal,object对象还原预处理
+![]       =====> false
+ConditionalExpression --> Literal,object对象还原预处理
+true?a:b; ====> a;
+********************************************************/
+
+const preprocess_expression = 
+{
+	  "BinaryExpression|UnaryExpression|ConditionalExpression"(path)
+    {
+    	if (path.type == "UnaryExpression" && path.node.operator == "-")
+    	{
+    		return;
+    	}
+    	const {confident,value} = path.evaluate();
+    	value != "Infinity" && confident && path.replaceInline(types.valueToNode(value));
+    },
+}
+
+traverse(ast, preprocess_expression);
+
+/********************************************************************
+处理object
+*********************************************************************/
 const decode_object = {
+	
 	VariableDeclarator(path)
 	{
+
 		const {id,init} = path.node;
 		if (!types.isObjectExpression(init)) return;
 		let name = id.name;
@@ -268,7 +367,6 @@ const decode_object = {
 			properties.push(types.ObjectProperty(left.property,right));
 			
 			next_sibling.remove();
-			
 		}
 		
 		if (properties.length == 0)
@@ -277,6 +375,8 @@ const decode_object = {
 		}
 		
 		let scope = path.scope;
+		let binding =  scope.getBinding(name);
+
 		let next_sibling = path.parentPath.getNextSibling();
 		if (next_sibling.isVariableDeclaration())
 		{
@@ -297,30 +397,40 @@ const decode_object = {
 			{
 				return;
 			}
+			if (types.isFunctionExpression(value))
+			{
+				let ret_state = value.body.body;
+				if (!ret_state || ret_state.length != 1) return;
+				if (!types.isReturnStatement(ret_state[0])) return;
+			}
 		}
-
+		
+		let can_removed = false;
 		for (const property of properties)
 		{
 			let key   = property.key.value;
 			let value = property.value;
+			
 			if (types.isLiteral(value))
 			{
 				scope.traverse(scope.block,{
-					MemberExpression(_path)
+					MemberExpression:{
+					exit(_path)
 					{
-						let _node = _path.node;
-						if (!types.isIdentifier(_node.object,{name:name})) return;
-						if (!types.isLiteral(_node.property, {value:key})) return;
-						_path.replaceWith(value);
-					},
+						let {object,property} = _path.node;
+						if (!types.isIdentifier(object,{name:name})) return;
+						if (!types.isLiteral(property, {value:key})) return;					
+						_path.replaceInline(value);				
+					}
+				},
 				})
 			}
-			else if (types.isFunctionExpression(value))
+			else
 			{
 				let ret_state = value.body.body[0];
-				if(!types.isReturnStatement(ret_state)) continue;
 				scope.traverse(scope.block,{
-					CallExpression: function(_path) {
+					CallExpression: {
+					exit(_path) {
 						let {callee,arguments} = _path.node;
 						if (!types.isMemberExpression(callee)) return;
 						
@@ -340,16 +450,20 @@ const decode_object = {
             {
             	replace_node = types.LogicalExpression(ret_state.argument.operator, arguments[0], arguments[1]);
             }
-            replace_node && _path.replaceWith(replace_node);
+            if (replace_node)
+            {//替换函数成功为删除标志
+            	can_removed = true;
+            	_path.replaceWith(replace_node);
+            }
           }
-        })
-      }
+        }
+       })
+      }	
     }
-    path.remove();
+    can_removed && path.remove();
   },
 }
 traverse(ast, decode_object);
-
 
 /*******************************************************
 去控制流
@@ -394,11 +508,13 @@ const decode_while = {
 }
 traverse(ast, decode_while);
 
+
+
 /***************************************************
 处理IfStatement，规范If表达式
 删除条件已知的语句
 ***************************************************/
-traverse(ast, combin_BinaryExpression);
+traverse(ast, preprocess_expression);
 const decode_if = {
     IfStatement(path)
     {
@@ -432,12 +548,22 @@ const decode_if = {
     {
         path.remove();
     },
+    VariableDeclarator(path)
+    {
+    	const {id,init} = path.node;
+    	if (!types.isObjectExpression(init)) return;        
+      const binding = path.scope.getBinding(id.name);
+      if (binding.references === 0)
+      {
+      	path.remove();
+      }
+    },    
 }
 traverse(ast, decode_if);
-
 
 /************************************
 处理完毕，生成新代码
 *************************************/
 let {code} = generator(ast);
+
 fs.writeFile(decode_file, code, (err) => {});
