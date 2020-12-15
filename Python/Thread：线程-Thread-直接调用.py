@@ -35,7 +35,7 @@ class JdComments(object):
         # # 否则超时后将返回False
         # threadLock.acquire()
         while 1:
-            print("剩余剩余请求页:%s" % self.req_queue.qsize())
+            print("剩余请求:%s" % self.req_queue.qsize())
             url = self.req_queue.get()
             try:
                 response = requests.get(url=url, headers=self.headers)

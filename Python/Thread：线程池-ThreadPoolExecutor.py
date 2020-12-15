@@ -27,7 +27,7 @@ class JdComments(object):
 
     def get_comment(self):
         while 1:
-            print("剩余剩余请求页:%s" % self.req_queue.qsize())
+            print("剩余请求页:%s" % self.req_queue.qsize())
             if self.req_queue.empty():
                 break
             item = {}
