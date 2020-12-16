@@ -22,8 +22,7 @@ mydb = pymysql.connect(
 )
 cur = mydb.cursor()
 cur.execute("SELECT VERSION()")
-data = cur.fetchall()
-print("Database version:", data)
+res = cur.fetchall()
 cur.close()
 mydb.close()
 
@@ -37,26 +36,16 @@ myclient.close()
 import redis
 
 """
-Redis TCP连接
-    redis://[:password]@host:port/db
-Redis TCP+SSL连接
-    rediss://[:password]@host:port/db
-Redis UNIX socket连接
-    unix://[:password]@/path/to/socket.sock?db=db
+redis://:password@host:port/db(TCP)
+rediss://:password@host:port/db(TCP+SSL)
+unix://:password@/path/to/socket.sock?db=db(UNIX+socket)
 """
 
-url = "redis://:1111@39.106.189.108:6379/0"
-pool = redis.ConnectionPool.from_url(url)
-db1 = redis.StrictRedis(connection_pool=pool)
-db1.set("name", "Bob")
-print(db1.get("name"))
-
-db2 = redis.StrictRedis(host="127.0.0.1", port=6379, password="1111", db=0)
-db2.set("name", "Bob")
-print(db2.get("name"))
-print(db2.dbsize())
-print(db2.getset("name", "Mike"))
-db2.close()
-
-db3 = redis.Redis(host="127.0.0.1", port=6379, password="1111", db=0)
-db3.close()
+rd0 = redis.Redis.from_url("redis://:password@127.0.0.1:6379/0")
+# 连接池连接
+pool = redis.ConnectionPool(host="127.0.0.1", port=6379, password="password", db=1)
+rd1 = redis.Redis(connection_pool=pool)
+rd2 = redis.StrictRedis(connection_pool=pool)
+# 直接连接
+rd3 = redis.Redis(host="127.0.0.1", port=6379, password="password", db=1)
+rd4 = redis.StrictRedis(host="127.0.0.1", port=6379, password="password", db=1)
