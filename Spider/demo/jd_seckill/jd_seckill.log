@@ -1,0 +1,11 @@
+2020-12-28 10:47:02,179 - 14616-MainThread - D:\Projects\learn_forever\Spider\demo\jd_seckill\jd_spider_requests.py[line:308] - INFO: seckill_by_proc_pool 需登陆后调用，开始扫码登陆
+2020-12-28 10:47:02,461 - 14616-MainThread - D:\Projects\learn_forever\Spider\demo\jd_seckill\jd_spider_requests.py[line:177] - INFO: 二维码获取成功，请打开京东APP扫描
+2020-12-28 10:47:02,660 - 14616-MainThread - D:\Projects\learn_forever\Spider\demo\jd_seckill\jd_spider_requests.py[line:205] - INFO: Code: 201, Message: 二维码未扫描，请扫描二维码
+2020-12-28 10:47:04,689 - 14616-MainThread - D:\Projects\learn_forever\Spider\demo\jd_seckill\jd_spider_requests.py[line:205] - INFO: Code: 201, Message: 二维码未扫描，请扫描二维码
+2020-12-28 10:47:06,718 - 14616-MainThread - D:\Projects\learn_forever\Spider\demo\jd_seckill\jd_spider_requests.py[line:205] - INFO: Code: 201, Message: 二维码未扫描，请扫描二维码
+2020-12-28 10:47:08,771 - 14616-MainThread - D:\Projects\learn_forever\Spider\demo\jd_seckill\jd_spider_requests.py[line:205] - INFO: Code: 201, Message: 二维码未扫描，请扫描二维码
+2020-12-28 10:47:10,800 - 14616-MainThread - D:\Projects\learn_forever\Spider\demo\jd_seckill\jd_spider_requests.py[line:205] - INFO: Code: 201, Message: 二维码未扫描，请扫描二维码
+2020-12-28 10:47:12,817 - 14616-MainThread - D:\Projects\learn_forever\Spider\demo\jd_seckill\jd_spider_requests.py[line:205] - INFO: Code: 201, Message: 二维码未扫描，请扫描二维码
+2020-12-28 10:47:14,844 - 14616-MainThread - D:\Projects\learn_forever\Spider\demo\jd_seckill\jd_spider_requests.py[line:205] - INFO: Code: 201, Message: 二维码未扫描，请扫描二维码
+2020-12-28 10:47:16,861 - 14616-MainThread - D:\Projects\learn_forever\Spider\demo\jd_seckill\jd_spider_requests.py[line:205] - INFO: Code: 201, Message: 二维码未扫描，请扫描二维码
+2020-12-28 10:47:18,886 - 14616-MainThread - D:\Projects\learn_forever\Spider\demo\jd_seckill\jd_spider_requests.py[line:205] - INFO: Code: 201, Message: 二维码未扫描，请扫描二维码

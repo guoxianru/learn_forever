@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
+
+"""
+    根据IP精确定位经纬度
+"""
 
 import traceback
 

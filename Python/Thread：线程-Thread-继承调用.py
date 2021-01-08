@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
+
+"""
+    继承threading.Thread的类，重写方法实现多线程
+"""
 
 import threading
 import time

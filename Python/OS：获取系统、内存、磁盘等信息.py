@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
 
 """
     获取系统、内存、磁盘等信息和使用情况

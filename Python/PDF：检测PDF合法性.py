@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
 
 """
     检测PDF文件是否有效，参数为pdf文件全路径名

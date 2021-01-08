@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
+
 """
     读取Excel转换为字典
     把字典添加进列表，写入Excel(表头不定，选取最长表头)

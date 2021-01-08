@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
 
 """
     以当前时间作为文件名保存

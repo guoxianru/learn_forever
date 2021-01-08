@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
 
 """
 现有三个柱子，在第一个柱子有number个盘子要移动多少次才能全部移动到第三个柱子？

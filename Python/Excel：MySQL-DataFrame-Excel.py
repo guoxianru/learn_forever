@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
+
 """
     运行SQL语句从数据库读取数据写入Excel
     pip install pandas

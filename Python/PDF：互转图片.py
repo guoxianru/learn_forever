@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
 
 """
     PDF文件与图片相互转化:把PDF每一页内容转化为一张图片,把几张图片合并为一个PDF文件

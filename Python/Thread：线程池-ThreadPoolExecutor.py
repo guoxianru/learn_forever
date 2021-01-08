@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
+
+"""
+    用ThreadPoolExecutor方法实现多线程
+"""
 
 import time
 import traceback
@@ -33,7 +38,10 @@ class JdComments(object):
             item = {}
             url = self.req_queue.get()
             try:
-                response = requests.get(url=url, headers=self.headers,)
+                response = requests.get(
+                    url=url,
+                    headers=self.headers,
+                )
                 for res in response.json()["comments"]:
                     item["昵称"] = res["nickname"]
                     item["评分"] = res["score"]

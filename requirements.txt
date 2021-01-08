@@ -1,12 +1,17 @@
+# pep8
+black
+pylint
 # spider
-requests==2.22.0
-scrapy==1.8.0
-crawlab-sdk
-lxml
-selenium
-pyppeteer
+requests
+scrapy
 scrapy-redis
 scrapy-splash
+# parse
+lxml
+# auto
+selenium
+pyppeteer
+pyautogui
 # js
 pyexecjs
 # database
@@ -15,17 +20,17 @@ pymongo
 redis
 # data
 pandas
-pyyaml
 # excel
 xlrd
 xlwt
 xlutils
 openpyxl
-# api
-fastapi
-uvicorn
 # word
 python-docx
+# api
+fastapi
+# asgi
+uvicorn
 # image
 pillow
 pdf2image
@@ -38,23 +43,31 @@ pytesseract
 # plot
 setuptools
 matplotlib
+# exe
+pyinstaller
+# pyqt
+pyqt5==5.13.0
+pyqt5-stubs==5.13.0.1
+pyqt5-tools==5.13.0.1.5
 # other
 retry
 retrying
-loguru # log
-sshtunnel # ssh
-demjson # json
-cpca # address
-folium # map
-fonttools # font
-psutil # system,memory,disk...
-pyautogui # Python GUI Automation
+loguru
+sshtunnel
+pyyaml
+demjson
+cpca==0.5.0
+folium
+fonttools
+psutil
 # sdk
 aliyun-python-sdk-core
 aliyun-python-sdk-alimt
 baidu-aip
 tencentcloud-sdk-python
 
-# Manual
-# ocr:tesserocr
-# android:frida frida-tools
+
+# tesserocr
+# frida==12.8.0
+# frida-tools==5.3.0
+# objection==1.8.4

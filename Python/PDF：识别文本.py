@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
 
+"""
+    识别PDF文件的文本信息
+"""
 
 def pdf_to_text(exe_path, input_file, output_file):
     """

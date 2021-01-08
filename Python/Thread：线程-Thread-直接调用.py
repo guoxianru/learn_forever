@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
+
+"""
+    直接调用threading.Thread的方法实现多线程
+"""
 
 import threading
 import time
@@ -21,9 +26,9 @@ class JdComments(object):
     def get_request(self, page):
         for page in range(page):
             url = (
-                "https://club.jd.com/comment/productPageComments.action?&productId=100000177748&score=0&sortType=5&page="
-                + str(page)
-                + "&pageSize=10&isShadowSku=0&fold=1"
+                    "https://club.jd.com/comment/productPageComments.action?&productId=100000177748&score=0&sortType=5&page="
+                    + str(page)
+                    + "&pageSize=10&isShadowSku=0&fold=1"
             )
             self.req_queue.put(url)
 

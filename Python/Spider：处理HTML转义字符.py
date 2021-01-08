@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
+
+"""
+    处理HTML转义字符
+"""
 
 import html
 import json

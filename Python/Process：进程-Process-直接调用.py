@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
+
+"""
+    直接调用multiprocessing.Process的方法实现多进程
+"""
 
 import multiprocessing
 import time

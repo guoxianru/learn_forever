@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
 
 """
     打开一个工作簿，复制工作簿，修改新的工作簿部分内容，其余不变，写入新Excel文件

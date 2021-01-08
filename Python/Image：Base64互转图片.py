@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
 
 """
     打开一张图片,转成base64编码,把图片的base64编码进行解码,存成图片,格式要一致

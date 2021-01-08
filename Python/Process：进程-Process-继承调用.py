@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-# -*- author: GXR -*-
+# @Author: GXR
+# @CreateTime: 2020-10-01
+
+"""
+    继承multiprocessing.Process的类，重写方法实现多进程
+"""
 
 import multiprocessing
 import time
