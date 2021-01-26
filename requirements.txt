@@ -6,6 +6,7 @@ requests
 scrapy
 scrapy-redis
 scrapy-splash
+mitmproxy
 # parse
 lxml
 # auto
