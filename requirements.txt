@@ -15,6 +15,7 @@ pyppeteer
 pyautogui
 # js
 pyexecjs
+jiphy
 # database
 pymysql
 pymongo
